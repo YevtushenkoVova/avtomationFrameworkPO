@@ -3,31 +3,51 @@ package Test;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxOptions;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
 
 public class TestInit {
 
-   public WebDriver driver;
+    public WebDriver driver;
 
-    @BeforeMethod
-    public void startChrome(){
-        WebDriverManager.chromedriver().setup();
-        driver = new ChromeDriver();
-        driver.manage().window().maximize();
+//    @BeforeMethod
+//    public void startChrome(){
+//        WebDriverManager.chromedriver().setup();
+//        driver = new ChromeDriver();
+//        driver.manage().window().maximize();
+//    }
+//
+//        @AfterMethod
+//    public void exit(){
+//        driver.quit();
+//    }
+
+    @BeforeClass
+    @Parameters("browser")
+    public void initialization(String browser) {
+        if (browser.equalsIgnoreCase("firefox")) {
+            WebDriverManager.firefoxdriver().setup();
+            FirefoxOptions options = new FirefoxOptions();
+          //  options.setHeadless(true);
+            driver = new FirefoxDriver(options);
+        } else if (browser.equalsIgnoreCase("chrome")) {
+            WebDriverManager.chromedriver().setup();
+            ChromeOptions options = new ChromeOptions();
+          //  options.setHeadless(true);
+            driver = new ChromeDriver(options);
+        }
     }
 
-    @AfterMethod
-    public void exit(){
+    @AfterClass
+    public void tearDown() {
         driver.quit();
     }
 
-
-
-
-
-    public void openRozetka(){
+    public void openRozetka() {
         driver.get("https://rozetka.com.ua/");
     }
 
