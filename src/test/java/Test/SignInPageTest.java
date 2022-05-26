@@ -6,7 +6,7 @@ import org.testng.annotations.Test;
 
 public class SignInPageTest extends TestInit{
 
-    @Test
+    @Test(priority = 1)
     public void checkValidSignIn(){
         openRozetka();
         HomePage homePage = new HomePage(driver);
@@ -19,7 +19,7 @@ public class SignInPageTest extends TestInit{
         signInPage.checkMessageErrorRobot();
     }
 
-    @Test
+    @Test(priority = 2)
     public void checkEmptyFieldsSignIn(){
         openRozetka();
         HomePage homePage = new HomePage(driver);
