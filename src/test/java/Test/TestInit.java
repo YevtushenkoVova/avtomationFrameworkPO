@@ -6,43 +6,43 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.Parameters;
+import org.testng.annotations.*;
+
+import java.time.Duration;
 
 public class TestInit {
 
     public WebDriver driver;
 
-//    @BeforeMethod
-//    public void startChrome(){
-//        WebDriverManager.chromedriver().setup();
-//        driver = new ChromeDriver();
-//        driver.manage().window().maximize();
-//    }
-//
-//        @AfterMethod
-//    public void exit(){
-//        driver.quit();
-//    }
+    @BeforeMethod
+    public void startChrome(){
+        WebDriverManager.chromedriver().setup();
+        driver = new ChromeDriver();
+        driver.manage().window().maximize();
+    }
 
-    @BeforeClass
-    @Parameters("browser")
+        @AfterMethod
+    public void exit(){
+        driver.quit();
+    }
+
+//    @BeforeClass
+//    @Parameters("browser")
     public void initialization(String browser) {
         if (browser.equalsIgnoreCase("firefox")) {
             WebDriverManager.firefoxdriver().setup();
             FirefoxOptions options = new FirefoxOptions();
-          //  options.setHeadless(true);
+            options.setHeadless(true);
             driver = new FirefoxDriver(options);
         } else if (browser.equalsIgnoreCase("chrome")) {
             WebDriverManager.chromedriver().setup();
             ChromeOptions options = new ChromeOptions();
-          //  options.setHeadless(true);
+            options.setHeadless(true);
             driver = new ChromeDriver(options);
         }
     }
 
-    @AfterClass
+   // @AfterClass
     public void tearDown() {
         driver.quit();
     }

@@ -44,9 +44,9 @@ public abstract class BasePage {
         return wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(By.xpath(lokator)));
     }
 
-    public void sleep(int seconds) {
+    public void sleep(int millis) {
         try {
-            Thread.sleep(seconds * 1000);
+            Thread.sleep(millis);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
