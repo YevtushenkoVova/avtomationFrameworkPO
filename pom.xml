@@ -61,7 +61,7 @@
                 <configuration>
                     <suiteXmlFiles>
                         <!--suppress UnresolvedMavenProperty -->
-                        <suiteXmlFile>C:\Users\Владимир\IdeaProjects\Rozetka\src\test\java\AllTests.xml</suiteXmlFile>
+                        <suiteXmlFile>/Users/macbook/avtomationFrameworkPO/src/test/java/AllTests.xml</suiteXmlFile>
                     </suiteXmlFiles>
                 </configuration>
                 <dependencies>
