@@ -49,4 +49,5 @@ public class Laptop extends TestInit {
         new HomePage(driver)
                 .enterProductInSearch("some text");
     }
+
 }
