@@ -13,6 +13,7 @@ public class Laptop extends TestInit {
         new HomePage(driver)
                 .enterProductInSearch("Ноутбук")
                 .openPageProduct()
+
                 .checkLincLaptop();
     }
 
@@ -25,20 +26,21 @@ public class Laptop extends TestInit {
         new ProductPage(driver)
                 .rozetkaSalerFiltreClick()
                 .hpFiltreClick()
+
                 .checkFiltreHP();
     }
 
     @Test
-    public void checkMonitor() {
+    public void checkMonitor(){
         openRozetka();
-        HomePage homePage = new HomePage(driver);
-        homePage.enterProductInSearch(homePage.productTV);
-        homePage.openPageProduct();
-        ProductPage productPage = new ProductPage(driver);
-        productPage.rozetkaSalerFiltreClick();
-        productPage.hpFiltreClick();
+        new HomePage(driver)
+        .enterProductInSearch("Мониторы")
+        .openPageProduct();
+  new ProductPage(driver)
+        .rozetkaSalerFiltreClick()
+        .hpFiltreClick()
 
-        productPage.checkFiltreHP();
+        .checkFiltreHP();
     }
 
     @Test
@@ -46,7 +48,5 @@ public class Laptop extends TestInit {
         openRozetka();
         new HomePage(driver)
                 .enterProductInSearch("some text");
-
-
     }
 }
