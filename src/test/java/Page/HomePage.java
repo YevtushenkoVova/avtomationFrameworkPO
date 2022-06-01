@@ -1,5 +1,6 @@
 package Page;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
@@ -11,6 +12,8 @@ public class HomePage extends BasePage {
     }
 
     public final String productTV = "Мониторы";
+
+
 
     // WebElement
 
@@ -32,6 +35,14 @@ public class HomePage extends BasePage {
 
     private WebElement laptopLink() {
         return getElementByXpath("//span[text()='Компьютеры и ноутбуки']");
+    }
+
+    public WebElement getButtonHelpZSU() {
+        return getElementByXpath("//a[@class='help-zsu header-actions__component']");
+    }
+
+    private WebElement getLupa() {
+        return getElementByXpath("//i[@class='fa fa-search']");
     }
 
     // Method
@@ -61,5 +72,14 @@ public class HomePage extends BasePage {
 
     public void checkLincLaptop() {
         Assert.assertTrue(laptopLink().isDisplayed());
+    }
+
+    public HomePage getButtonHelpZSUclick() {
+        getButtonHelpZSU().click();
+        return this;
+
+    }
+    public void getLupasearch() {
+        Assert.assertTrue(getLupa().isDisplayed());
     }
 }

@@ -2,8 +2,13 @@ package Test;
 
 import Page.HomePage;
 import Page.ProductPage;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.testng.Assert;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
+
+import java.util.ArrayList;
 
 public class Laptop extends TestInit {
 
@@ -50,4 +55,15 @@ public class Laptop extends TestInit {
                 .enterProductInSearch("some text");
     }
 
+    @Test
+    public void helpZSU(){
+        openRozetka();
+        new HomePage(driver)
+                .getButtonHelpZSUclick();
+        ArrayList<String> tabs = new ArrayList<>(driver.getWindowHandles());
+        driver.switchTo().window(tabs.get(1));
+        new HomePage(driver)
+        .getLupasearch();
+
+    }
 }
