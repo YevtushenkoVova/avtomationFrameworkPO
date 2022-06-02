@@ -1,7 +1,9 @@
 package Page;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
 
 public class HomePage extends BasePage {
@@ -11,6 +13,7 @@ public class HomePage extends BasePage {
     }
 
     public final String productTV = "Мониторы";
+
 
     // WebElement
 
@@ -34,32 +37,98 @@ public class HomePage extends BasePage {
         return getElementByXpath("//span[text()='Компьютеры и ноутбуки']");
     }
 
-    // Method
+    private WebElement getButtonHelpZSU() {
+        return getElementByXpath("//a[@class='help-zsu header-actions__component']");
+    }
 
-    public void sideMenuClose() {
-        if (sideMenu().isEnabled()) {
-            sideMenu().click();
+    private WebElement getLupa() {
+        return getElementByXpath("//i[@class='fa fa-search']");
+    }
+
+    private WebElement clickButtonComp() {
+        return getElementByXpath("//a[@class='menu-categories__link'][contains(text(),'Ноутбуки и компьютеры')]");
+
+    }
+
+    private WebElement getButtonNoutbuki() {
+        return getElementByXpath("//a[@title='Ноутбуки'][contains(text(),'Ноутбуки')]");
+    }
+
+    private WebElement getComputerAsser() {
+        return getElementByXpath("//a[@title='Ноутбук Acer Aspire 7 A715-42G-R0VS (NH.QBFEU.00A) Charcoal Black']");
+    }
+
+    private WebElement getButtonBasket() {
+        return getElementByXpath("//span[@class='buy-button__label ng-star-inserted']");
+    }
+
+    private WebElement getBascet() {
+        return getElementByXpath("//a[@class='button button_size_large button_color_green cart-receipt__submit ng-star-inserted']");
+    }
+        // Method
+
+        public void sideMenuClose () {
+            if (sideMenu().isEnabled()) {
+                sideMenu().click();
+            }
         }
+    public void moveToElementmouse(){
+        Actions actions = new Actions(driver);
+        actions.moveToElement(input()).perform();
     }
+        public HomePage enterProductInSearch (String pro){
+            input().sendKeys(pro);
+            return this;
+        }
 
-    public HomePage enterProductInSearch(String pro) {
-        input().sendKeys(pro);
+        public HomePage openPageProduct () {
+            searchBtn().click();
+            return this;
+        }
+
+        public HomePage clickSignInBtn () {
+            signInBtn().click();
+            return this;
+        }
+
+        //Check
+
+        public void checkLincLaptop () {
+            Assert.assertTrue(laptopLink().isDisplayed());
+        }
+
+        public HomePage getButtonHelpZSUclick () {
+            getButtonHelpZSU().click();
+            return this;
+
+        }
+        public void getLupasearch () {
+            Assert.assertTrue(getLupa().isDisplayed());
+        }
+
+        public HomePage clickButtonComputer () {
+            clickButtonComp().click();
+            return this;
+        }
+
+    public HomePage clickButtonNoutbuki() {
+        getButtonNoutbuki().click();
         return this;
     }
 
-    public HomePage openPageProduct() {
-        searchBtn().click();
+    public HomePage getCompAsser() {
+        getComputerAsser().click();
         return this;
     }
 
-    public HomePage clickSignInBtn() {
-        signInBtn().click();
+    public HomePage clickButtonBasket() {
+        getButtonBasket().click();
         return this;
     }
-
-    //Check
-
-    public void checkLincLaptop() {
-        Assert.assertTrue(laptopLink().isDisplayed());
+    public void getBascetsearch() {
+        Assert.assertTrue(getBascet().isDisplayed());
     }
+
 }
+
+
