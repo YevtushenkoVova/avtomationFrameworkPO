@@ -10,8 +10,6 @@ public class HomePage extends BasePage {
         super(driver);
     }
 
-    public final String productTV = "Мониторы";
-
     // WebElement
 
     private WebElement input() {

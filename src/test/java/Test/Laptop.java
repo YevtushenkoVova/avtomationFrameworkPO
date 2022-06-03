@@ -48,6 +48,7 @@ public class Laptop extends TestInit {
         new HomePage(driver)
                 .enterProductInSearch("some text");
     }
+
 @Test
     public void helpСenter() {
         openRozetka();
