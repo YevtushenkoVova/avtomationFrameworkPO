@@ -45,8 +45,7 @@ public class Laptop extends TestInit {
   new ProductPage(driver)
         .rozetkaSalerFiltreClick()
         .hpFiltreClick()
-
-        .checkFiltreHP();
+          .checkFiltreHP();
     }
 
     @Test
@@ -79,7 +78,6 @@ public class Laptop extends TestInit {
         new HomePage(driver)
                 .clickButtonBasket()
                 .getBascetsearch();
-
     }
 }
 

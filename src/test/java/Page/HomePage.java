@@ -91,7 +91,7 @@ public class HomePage extends BasePage {
             return this;
         }
 
-        //Check
+    //Check
 
         public void checkLincLaptop () {
             Assert.assertTrue(laptopLink().isDisplayed());
@@ -129,6 +129,9 @@ public class HomePage extends BasePage {
         Assert.assertTrue(getBascet().isDisplayed());
     }
 
+    public HomePage clickButtonHelpCenter() {
+        bu
+    }
 }
 
 
