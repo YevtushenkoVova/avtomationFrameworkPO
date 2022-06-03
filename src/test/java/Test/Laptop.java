@@ -39,8 +39,7 @@ public class Laptop extends TestInit {
   new ProductPage(driver)
         .rozetkaSalerFiltreClick()
         .hpFiltreClick()
-
-        .checkFiltreHP();
+          .checkFiltreHP();
     }
 
     @Test
@@ -49,5 +48,15 @@ public class Laptop extends TestInit {
         new HomePage(driver)
                 .enterProductInSearch("some text");
     }
-
+@Test
+    public void helpСenter() {
+        openRozetka();
+        new HomePage(driver)
+                .clickButtonHelpCenter()
+                .clickpayHelp()
+                .clickCreditAndInstallments()
+                .clickHowToMakePayment()
+                .checkContactUs();
 }
+}
+
