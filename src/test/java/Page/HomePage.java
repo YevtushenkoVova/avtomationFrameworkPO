@@ -1,19 +1,17 @@
 package Page;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
+
+import java.util.ArrayList;
 
 public class HomePage extends BasePage {
 
     public HomePage(WebDriver driver) {
         super(driver);
     }
-
-    public final String productTV = "Мониторы";
-
 
     // WebElement
 
@@ -45,9 +43,8 @@ public class HomePage extends BasePage {
         return getElementByXpath("//i[@class='fa fa-search']");
     }
 
-    private WebElement clickButtonComp() {
+    private WebElement compBtn() {
         return getElementByXpath("//a[@class='menu-categories__link'][contains(text(),'Ноутбуки и компьютеры')]");
-
     }
 
     private WebElement getButtonNoutbuki() {
@@ -65,51 +62,45 @@ public class HomePage extends BasePage {
     private WebElement getBascet() {
         return getElementByXpath("//a[@class='button button_size_large button_color_green cart-receipt__submit ng-star-inserted']");
     }
-        // Method
 
-        public void sideMenuClose () {
-            if (sideMenu().isEnabled()) {
-                sideMenu().click();
-            }
+    // Method
+
+    public void sideMenuClose() {
+        if (sideMenu().isEnabled()) {
+            sideMenu().click();
         }
-    public void moveToElementmouse(){
-        Actions actions = new Actions(driver);
-        actions.moveToElement(input()).perform();
     }
-        public HomePage enterProductInSearch (String pro){
-            input().sendKeys(pro);
-            return this;
-        }
 
-        public HomePage openPageProduct () {
-            searchBtn().click();
-            return this;
-        }
+    public void goToTwoTap() {
+        ArrayList<String> tabs = new ArrayList<>(driver.getWindowHandles());
+        driver.switchTo().window(tabs.get(1));
+    }
 
-        public HomePage clickSignInBtn () {
-            signInBtn().click();
-            return this;
-        }
+    public HomePage enterProductInSearch(String pro) {
+        input().sendKeys(pro);
+        return this;
+    }
 
-    //Check
+    public HomePage openPageProduct() {
+        searchBtn().click();
+        return this;
+    }
 
-        public void checkLincLaptop () {
-            Assert.assertTrue(laptopLink().isDisplayed());
-        }
+    public HomePage clickSignInBtn() {
+        signInBtn().click();
+        return this;
+    }
 
-        public HomePage getButtonHelpZSUclick () {
-            getButtonHelpZSU().click();
-            return this;
+    public HomePage getButtonHelpZSUclick() {
+        getButtonHelpZSU().click();
+        goToTwoTap();
+        return this;
+    }
 
-        }
-        public void getLupasearch () {
-            Assert.assertTrue(getLupa().isDisplayed());
-        }
-
-        public HomePage clickButtonComputer () {
-            clickButtonComp().click();
-            return this;
-        }
+    public HomePage clickButtonComputer() {
+        compBtn().click();
+        return this;
+    }
 
     public HomePage clickButtonNoutbuki() {
         getButtonNoutbuki().click();
@@ -122,16 +113,26 @@ public class HomePage extends BasePage {
     }
 
     public HomePage clickButtonBasket() {
+        Actions actions = new Actions(driver);
+        actions.moveToElement(input()).perform();
         getButtonBasket().click();
         return this;
     }
+
+    //Check
+
+    public void checkLincLaptop() {
+        Assert.assertTrue(laptopLink().isDisplayed());
+    }
+
+    public void getLupasearch() {
+        Assert.assertTrue(getLupa().isDisplayed());
+    }
+
     public void getBascetsearch() {
         Assert.assertTrue(getBascet().isDisplayed());
     }
 
-    public HomePage clickButtonHelpCenter() {
-        bu
-    }
 }
 
 
