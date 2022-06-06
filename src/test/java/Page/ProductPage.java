@@ -80,5 +80,23 @@ public class ProductPage extends BasePage {
         Assert.assertTrue(getElementByXpath("//a[@class='pagination__link ng-star-inserted pagination__link--active'][text()='3']").isDisplayed());
         return this;
     }
+
+    public ProductPage checkFilterVine() {
+        if (listProd().size() > 7) {
+            for (WebElement num : listProd()) {
+                Assert.assertTrue(num.getText().contains("Chizay"));
+                System.out.println(num.getSize());
+            }
+        }return this;
+    }
+
+    public void check12(){
+        for (int i = 0; i < listProd().size(); i++){
+            Assert.assertTrue(listProd().get(i).getText().contains("Chizay"));
+            System.out.println(i);
+        }
+    }
 }
+
+
 

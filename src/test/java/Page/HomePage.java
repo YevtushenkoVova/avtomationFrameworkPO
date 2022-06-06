@@ -65,6 +65,22 @@ public class HomePage extends BasePage {
     private WebElement getBascet() {
         return getElementByXpath("//a[@class='button button_size_large button_color_green cart-receipt__submit ng-star-inserted']");
     }
+
+    private WebElement getBtnAlcohol() {
+        return getElementByXpath("//a[@class='menu-categories__link'][contains(text(),'Алкогольные напитки и продукты')]");
+    }
+
+    private WebElement getBtnVine() {
+        return getElementByXpath("//a[@class='tile-cats__heading ng-star-inserted'][contains(text(),'Вино')]");
+    }
+
+    private WebElement getBtnIncognito() {
+        return getElementByXpath("//a[@class='btn-link-i exponea-close']");
+    }
+
+    private WebElement getBtnChizay() {
+        return getElementByXpath("//a[@data-id='Chizay']");
+    }
         // Method
 
         public void sideMenuClose () {
@@ -129,8 +145,24 @@ public class HomePage extends BasePage {
         Assert.assertTrue(getBascet().isDisplayed());
     }
 
-    public HomePage clickButtonHelpCenter() {
-        bu
+    public HomePage checkBattonAlcohol() {
+        getBtnAlcohol().click();
+        return this;
+    }
+
+    public HomePage btnVine() {
+        getBtnVine().click();
+        return this;
+    }
+
+    public HomePage btnIncognito() {
+        getBtnIncognito().click();
+        return this;
+    }
+
+    public HomePage btnChizay() {
+        getBtnChizay().click();
+        return this;
     }
 }
 
