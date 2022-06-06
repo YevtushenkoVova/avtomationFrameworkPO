@@ -81,72 +81,31 @@ public class HomePage extends BasePage {
     private WebElement getBtnChizay() {
         return getElementByXpath("//a[@data-id='Chizay']");
     }
-        // Method
+    // Method
 
-        public void sideMenuClose () {
-            if (sideMenu().isEnabled()) {
-                sideMenu().click();
-            }
+    public void sideMenuClose() {
+        if (sideMenu().isEnabled()) {
+            sideMenu().click();
         }
-    public void moveToElementmouse(){
+    }
+
+    public void moveToElementmouse() {
         Actions actions = new Actions(driver);
         actions.moveToElement(input()).perform();
     }
-        public HomePage enterProductInSearch (String pro){
-            input().sendKeys(pro);
-            return this;
-        }
 
-        public HomePage openPageProduct () {
-            searchBtn().click();
-            return this;
-        }
-
-        public HomePage clickSignInBtn () {
-            signInBtn().click();
-            return this;
-        }
-
-    //Check
-
-        public void checkLincLaptop () {
-            Assert.assertTrue(laptopLink().isDisplayed());
-        }
-
-        public HomePage getButtonHelpZSUclick () {
-            getButtonHelpZSU().click();
-            return this;
-
-        }
-        public void getLupasearch () {
-            Assert.assertTrue(getLupa().isDisplayed());
-        }
-
-        public HomePage clickButtonComputer () {
-            clickButtonComp().click();
-            return this;
-        }
-
-    public HomePage clickButtonNoutbuki() {
-        getButtonNoutbuki().click();
+    public HomePage enterProductInSearch(String pro) {
+        input().sendKeys(pro);
         return this;
     }
 
-    public HomePage getCompAsser() {
-        getComputerAsser().click();
+    public HomePage openPageProduct() {
+        searchBtn().click();
         return this;
     }
 
-    public HomePage clickButtonBasket() {
-        getButtonBasket().click();
-        return this;
-    }
-    public void getBascetsearch() {
-        Assert.assertTrue(getBascet().isDisplayed());
-    }
-
-    public HomePage checkBattonAlcohol() {
-        getBtnAlcohol().click();
+    public HomePage clickSignInBtn() {
+        signInBtn().click();
         return this;
     }
 
@@ -164,6 +123,54 @@ public class HomePage extends BasePage {
         getBtnChizay().click();
         return this;
     }
+
+    public HomePage clickButtonComputer() {
+        clickButtonComp().click();
+        return this;
+    }
+
+    public HomePage clickButtonNoutbuki() {
+        getButtonNoutbuki().click();
+        return this;
+    }
+
+    public HomePage getCompAsser() {
+        getComputerAsser().click();
+        return this;
+    }
+
+    public HomePage clickButtonBasket() {
+        getButtonBasket().click();
+        return this;
+    }
+
+    //Check
+
+    public void checkLincLaptop() {
+        Assert.assertTrue(laptopLink().isDisplayed());
+    }
+
+    public HomePage getButtonHelpZSUclick() {
+        getButtonHelpZSU().click();
+        return this;
+
+    }
+
+    public void getLupasearch() {
+        Assert.assertTrue(getLupa().isDisplayed());
+    }
+
+
+    public void getBascetsearch() {
+        Assert.assertTrue(getBascet().isDisplayed());
+    }
+
+    public HomePage checkBattonAlcohol() {
+        getBtnAlcohol().click();
+        return this;
+    }
+
+
 }
 
 
