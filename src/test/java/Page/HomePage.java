@@ -144,16 +144,20 @@ public class HomePage extends BasePage {
         return this;
     }
 
+     public HomePage checkBattonAlcohol() {
+        getBtnAlcohol().click();
+        return this;
+    }
+    
+      public HomePage getButtonHelpZSUclick() {
+        getButtonHelpZSU().click();
+        return this;
+   }
+    
     //Check
 
     public void checkLincLaptop() {
         Assert.assertTrue(laptopLink().isDisplayed());
-    }
-
-    public HomePage getButtonHelpZSUclick() {
-        getButtonHelpZSU().click();
-        return this;
-
     }
 
     public void getLupasearch() {
@@ -164,13 +168,6 @@ public class HomePage extends BasePage {
     public void getBascetsearch() {
         Assert.assertTrue(getBascet().isDisplayed());
     }
-
-    public HomePage checkBattonAlcohol() {
-        getBtnAlcohol().click();
-        return this;
-    }
-
-
 }
 
 
