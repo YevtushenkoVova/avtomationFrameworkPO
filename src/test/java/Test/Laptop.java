@@ -74,5 +74,23 @@ public class Laptop extends TestInit {
                 .clickButtonBasket()
                 .getBascetsearch();
     }
+
+    @Test
+    public void alcohol() {
+        openRozetka();
+        new HomePage(driver)
+                .checkBattonAlcohol()
+                .btnIncognito()
+                .btnVine()
+                .btnChizay();
+        new ProductPage(driver)
+                .checkFilterVine()
+                .check12();
+    }
+
+    @Test
+    public void start() {
+        openRozetka();
+    }
 }
 
