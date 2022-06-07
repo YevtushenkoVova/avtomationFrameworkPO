@@ -74,7 +74,8 @@ public class Laptop extends TestInit {
                 .clickButtonBasket()
                 .getBascetsearch();
     }
-@Test
+
+    @Test
     public void alcohol() {
         openRozetka();
         new HomePage(driver)
@@ -85,7 +86,11 @@ public class Laptop extends TestInit {
         new ProductPage(driver)
                 .checkFilterVine()
                 .check12();
+    }
 
-}
+    @Test
+    public void start() {
+        openRozetka();
+    }
 }
 
