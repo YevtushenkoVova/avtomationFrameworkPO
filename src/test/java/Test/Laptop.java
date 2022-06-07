@@ -19,7 +19,6 @@ public class Laptop extends TestInit {
         new HomePage(driver)
                 .enterProductInSearch("Ноутбук")
                 .openPageProduct()
-
                 .checkLincLaptop();
     }
 
