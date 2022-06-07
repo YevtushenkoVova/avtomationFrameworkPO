@@ -37,15 +37,15 @@ public class Laptop extends TestInit {
     }
 
     @Test
-    public void checkMonitor(){
+    public void checkMonitor() {
         openRozetka();
         new HomePage(driver)
-        .enterProductInSearch("Мониторы")
-        .openPageProduct();
-  new ProductPage(driver)
-        .rozetkaSalerFiltreClick()
-        .hpFiltreClick()
-          .checkFiltreHP();
+                .enterProductInSearch("Мониторы")
+                .openPageProduct();
+        new ProductPage(driver)
+                .rozetkaSalerFiltreClick()
+                .hpFiltreClick()
+                .checkFiltreHP();
     }
 
     @Test
@@ -56,26 +56,21 @@ public class Laptop extends TestInit {
     }
 
     @Test
-    public void helpZSU(){
+    public void helpZSU() {
         openRozetka();
         new HomePage(driver)
-                .getButtonHelpZSUclick();
-        ArrayList<String> tabs = new ArrayList<>(driver.getWindowHandles());
-        driver.switchTo().window(tabs.get(1));
-        new HomePage(driver)
-        .getLupasearch();
+                .getButtonHelpZSUclick()
+                .getLupasearch();
 
     }
 
     @Test
-    public void checkComputer(){
+    public void checkComputer() {
         openRozetka();
         new HomePage(driver)
                 .clickButtonComputer()
                 .clickButtonNoutbuki()
                 .getCompAsser()
-                .moveToElementmouse();
-        new HomePage(driver)
                 .clickButtonBasket()
                 .getBascetsearch();
     }
