@@ -13,9 +13,6 @@ public class HomePage extends BasePage {
         super(driver);
     }
 
-    public final String productTV = "Мониторы";
-
-
     // WebElement
 
     private WebElement input() {
@@ -66,8 +63,6 @@ public class HomePage extends BasePage {
         return getElementByXpath("//a[@class='button button_size_large button_color_green cart-receipt__submit ng-star-inserted']");
     }
 
-    // Method
-
     private WebElement getBtnAlcohol() {
         return getElementByXpath("//a[@class='menu-categories__link'][contains(text(),'Алкогольные напитки и продукты')]");
     }
@@ -83,6 +78,7 @@ public class HomePage extends BasePage {
     private WebElement getBtnChizay() {
         return getElementByXpath("//a[@data-id='Chizay']");
     }
+
     // Method
 
     public void sideMenuClose() {
@@ -94,25 +90,22 @@ public class HomePage extends BasePage {
     public void goToTwoTap() {
         ArrayList<String> tabs = new ArrayList<>(driver.getWindowHandles());
         driver.switchTo().window(tabs.get(1));
-    public void sideMenuClose() {
-        if (sideMenu().isEnabled()) {
-            sideMenu().click();
-        }
     }
 
     public void moveToElementmouse() {
         Actions actions = new Actions(driver);
         actions.moveToElement(input()).perform();
     }
-        public HomePage enterProductInSearch (String pro){
-            input().sendKeys(pro);
-            return this;
-        }
 
-        public HomePage openPageProduct () {
-            searchBtn().click();
-            return this;
-        }
+    public HomePage enterProductInSearch(String pro) {
+        input().sendKeys(pro);
+        return this;
+    }
+
+    public HomePage openPageProduct() {
+        searchBtn().click();
+        return this;
+    }
 
     public HomePage clickSignInBtn() {
         signInBtn().click();
@@ -127,10 +120,6 @@ public class HomePage extends BasePage {
 
     public HomePage clickButtonComputer() {
         compBtn().click();
-        return this;
-    }
-    public HomePage clickButtonComputer() {
-        clickButtonComp().click();
         return this;
     }
 
@@ -150,28 +139,30 @@ public class HomePage extends BasePage {
         getButtonBasket().click();
         return this;
     }
-
-    //Check
-
-    public void checkLincLaptop() {
-        Assert.assertTrue(laptopLink().isDisplayed());
-    }
-
-    public void getLupasearch() {
-        Assert.assertTrue(getLupa().isDisplayed());
-    }
-
-
-    //Check
-
-    public void checkLincLaptop() {
-        Assert.assertTrue(laptopLink().isDisplayed());
-    }
-
-    public HomePage getButtonHelpZSUclick() {
-        getButtonHelpZSU().click();
+    public HomePage checkBattonAlcohol() {
+        getBtnAlcohol().click();
         return this;
+    }
 
+    public HomePage btnIncognito() {
+        getBtnIncognito().click();
+        return this;
+    }
+
+    public HomePage btnVine() {
+        getBtnVine().click();
+        return this;
+    }
+
+    public HomePage btnChizay() {
+        getBtnChizay().click();
+        return this;
+    }
+
+    //Check
+
+    public void checkLincLaptop() {
+        Assert.assertTrue(laptopLink().isDisplayed());
     }
 
     public void getLupasearch() {
@@ -182,7 +173,7 @@ public class HomePage extends BasePage {
     public void getBascetsearch() {
         Assert.assertTrue(getBascet().isDisplayed());
     }
-
 }
+
 
 
